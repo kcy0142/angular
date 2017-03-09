@@ -1,0 +1,40 @@
+<script src="http://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/ui-darkness/jquery-ui.css">
+<p>
+  jquery works!
+</p>
+<textarea  #someVar  id="tasknote"
+                  name="tasknote"
+                  [(ngModel)]="taskNote1"
+                  placeholder="{{ notePlaceholder }}"
+                  style="background-color: pink"
+                  (blur)="updateNote() ; noteEditMode = false " (click)="noteEditMode = false"> {{ note }}
+
+</textarea>
+
+<textarea  #someVar1  id="tasknote1"
+                  name="tasknote1"
+                  [(ngModel)]="todo.title"
+                  placeholder="{{ notePlaceholder }}"
+                  style="background-color: pink"
+                  (blur)="updateNote1() ; noteEditMode = false " (click)="noteEditMode = false"> {{ note }}
+
+</textarea>
+
+<h2></h2>
+<div>
+<p>Count: {{num}}</p>
+<button (click)="increment()">Increment</button>
+</div>
+<div>
+<input [(ngModel)]="name" >{{name}}
+</div>
+<!-- <textarea  #someVar  id="tasknote"
+                  name="tasknote"
+                  [(ngModel)]="taskNote"
+                  placeholder="{{ notePlaceholder }}"
+                  style="background-color: pink"
+                  (blur)="updateNote() ; noteEditMode = false " (click)="noteEditMode = false"> {{ note }}
+
+</textarea> -->

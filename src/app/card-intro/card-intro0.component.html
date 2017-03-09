@@ -1,0 +1,61 @@
+<!-- app.component.html -->
+
+<h1>Multi slot transclusion</h1>
+<card>
+    <!-- header -->
+    <div card header>
+    <!-- <card-header> -->
+        New <strong>header test</strong>
+    <!-- </card-header> -->
+  </div>
+
+
+  <!-- body -->
+  <div class="card-block" step="card-summary">
+  <!-- <statement-card-summary> -->
+      <h4 class="statement-card-section-title">[Step1]Payment frequency:</h4>
+      <div>
+          {{frequency}}
+      </div>
+      <div>
+          Next payment: {{payment?.scheduledDate | date:'MMMM dd, yyyy'}}
+      </div>
+  <!-- </statement-card-summary> -->
+</div>
+<div class="card-block" step="card-addition">
+  <!-- <statement-card-addition> -->
+      <h4 class="statement-card-section-title">[Step2]Payment amount:</h4>
+      <div class="addition-line"><span>Amount</span><span>33333</span></div>
+      <div class="addition-line"><span>Sales tax</span><span>4.5</span></div>
+      <hr class="addition-seperator" />
+      <div class="addition-total"><span>Total</span><span></span></div>
+  <!-- </statement-card-addition> -->
+</div>
+<div class="card-block" step="card-payment">
+  <!-- <statement-card-payment> -->
+    <h4 class="statement-card-section-title">[Step3]Payment method:</h4>
+      <!-- <img src="images/bank.png" width="48" height="48" class="payment-method-icon" /> -->
+      <div class="payment-method-summary">
+          <div>Bank</div>
+          <div>Account ending in  ••••••••••1234</div>
+      </div>
+  <!-- </statement-card-payment> -->
+</div>
+<div class="card-block" step="card-end">
+  <!-- <statement-card-end> -->
+    <h4 class="statement-card-section-title">[Step4]Payment end</h4>
+    <!-- <img src="images/bank.png" width="48" height="48" class="payment-method-icon" /> -->
+    <div class="payment-method-summary">
+        <div>Thanks for using this site</div>
+        <div>We will be happy if you come again</div>
+    </div>
+  <!-- </statement-card-end> -->
+</div>
+
+  <div card footer>
+  <!-- <card-header> -->
+      New <strong>footer test</strong>
+  <!-- </card-header> -->
+  </div>
+
+</card>

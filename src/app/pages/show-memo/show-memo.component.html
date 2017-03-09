@@ -1,0 +1,62 @@
+
+<div *ngIf="pmemos.length === 0">
+    No Any Memos!
+</div>
+
+<!--<div *ngIf="selectedMemo">
+    <form  class="form-inline">
+        <div class="form-group">
+            <label >title:</label>
+            <input type="text" class="form-control" name="title" [(ngModel)]="selectedMemo.title" >
+        </div>
+        <select class="form-control" name="selectType" [(ngModel)]="selectedMemo.type">
+            <option *ngFor="let p of Priority" [value]="p" >
+                {{p}}
+            </option>
+        </select>
+        <div class="form-group">
+            <input type="text" class="form-control" id="priorityMemo" name="prioritymemo_text"
+            style="width:350px !important;" [(ngModel)]="selectedMemo.contents" />
+        </div>
+        <button class="btn btn-primary" (click)="updateMemo()" >Apply</button>
+        <button class="btn btn-danger" (click)="cancelUpdate()">Cancel</button>
+    </form>
+</div>-->
+
+
+<div *ngFor="let memo of pmemos">
+
+    <div class="card memo-div">
+
+        <div class="card-block">
+
+            <span>Type : </span><span>{{memo.type}}</span> <br />
+
+            <span>Title : </span><span>{{memo.title}}</span><br />
+            <h6>{{memo.contents}}</h6>
+            <button class="btn btn-danger" (click)="delete(memo.$key)">Delete</button>
+            <button class="btn btn-warning" (click)="edit(memo, memo.$key);">Edit</button>
+        </div>
+
+        <div style="display:none;" [attr.id]="memo.$key" >
+            <form  class="form-inline">
+                <div class="form-group">
+                    <label >title:</label>
+                    <input type="text" class="form-control" name="title" [(ngModel)]="memo.title" >
+                </div>
+                <select class="form-control" name="selectType" [(ngModel)]="memo.type">
+                    <option *ngFor="let p of Priority" [value]="p" >
+                        {{p}}
+                    </option>
+                </select>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="priorityMemo" name="prioritymemo_text"
+                    style="width:350px !important;" [(ngModel)]="memo.contents" />
+                </div>
+                <button class="btn btn-primary" (click)="updateMemo()" >Apply</button>
+                <button class="btn btn-danger" (click)="cancelUpdate()">Cancel</button>
+            </form>
+        </div>
+
+    </div>
+</div>

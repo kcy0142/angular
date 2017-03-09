@@ -1,0 +1,96 @@
+<!-- app.component.html -->
+
+<!-- <h1>Multi slot transclusion</h1> -->
+<h1>Card Process</h1>
+<cardProcess>
+    <!-- header -->
+    <div card header>
+    <!-- <card-header> -->
+        New <strong>header </strong>
+    <!-- </card-header> -->
+  </div>
+
+
+  <!-- body -->
+  <div class="card-block" step="card-summary">
+  <!-- <statement-card-summary> -->
+      <h4 class="statement-card-section-title">[Step1]Payment frequency:</h4>
+      <div>
+          {{frequency}}
+      </div>
+      <div>
+          Next payment: {{payment?.scheduledDate | date:'MMMM dd, yyyy'}}
+      </div>
+  <!-- </statement-card-summary> -->
+</div>
+<div class="card-block" step="card-addition">
+  <!-- <statement-card-addition> -->
+      <h4 class="statement-card-section-title">[Step2]Payment amount:</h4>
+      <div class="addition-line"><span>Amount</span><span>33333</span></div>
+      <div class="addition-line"><span>Sales tax</span><span>4.5</span></div>
+      <hr class="addition-seperator" />
+      <div class="addition-total"><span>Total</span><span></span></div>
+  <!-- </statement-card-addition> -->
+</div>
+<div class="card-block" step="card-payment">
+  <!-- <statement-card-payment> -->
+    <h4 class="statement-card-section-title">[Step3]Payment method:</h4>
+      <!-- <img src="images/bank.png" width="48" height="48" class="payment-method-icon" /> -->
+      <div class="payment-method-summary">
+          <div>Bank</div>
+          <div>Account ending in  ••••••••••1234</div>
+      </div>
+  <!-- </statement-card-payment> -->
+</div>
+<div class="card-block" step="card-end">
+  <!-- <statement-card-end> -->
+    <h4 class="statement-card-section-title">[Step4]Payment end</h4>
+    <!-- <img src="images/bank.png" width="48" height="48" class="payment-method-icon" /> -->
+    <div class="payment-method-summary">
+        <div>Thanks for using this site</div>
+        <div>
+          <h1>Custom Stripe Form</h1>
+
+  <form action="" method="POST" id="payment-form" (submit)="getToken()">
+    <span class="payment-message">{{message}}</span>
+
+    <div class="form-row">
+      <label>
+        <span>Card Number</span>
+        <input [(ngModel)]="cardNumber" name="card-number" type="text" size="20" data-stripe="number">
+      </label>
+    </div>
+
+    <div class="form-row">
+      <label>
+        <span>Expiration (MM/YY)</span>
+        <input [(ngModel)]="expiryMonth" name="expiry-month" type="text" size="2" data-stripe="exp_month">
+      </label>
+      <span> / </span>
+      <input [(ngModel)]="expiryYear" name="expiry-year" type="text" size="2" data-stripe="exp_year">
+    </div>
+
+    <div class="form-row">
+      <label>
+        <span>CVC</span>
+        <input [(ngModel)]="cvc" name="cvc" type="text" size="4" data-stripe="cvc">
+      </label>
+    </div>
+
+    <input type="submit" value="Submit Payment">
+  </form>
+
+
+
+        </div>
+    </div>
+  <!-- </statement-card-end> -->
+</div>
+
+  <div card footer>
+  <!-- <card-header> -->
+      New <strong>footer </strong>
+  <!-- </card-header> -->
+  </div>
+
+</cardProcess>

@@ -1,0 +1,58 @@
+<!-- card.component.html -->
+
+<div class="card">
+    <div class="card-header">
+    <!-- header slot here -->
+        <ng-content select="[card][header]"></ng-content>
+    </div>
+    {{stepIndex1}}
+     <!-- body slot here -->
+     <div class="row ">
+            <!-- <button (click)="showStep(1)">{{stepIndex}} start</button> -->
+            <div class="col-md-4" *ngIf="stepIndex1">
+                <!-- statment summary -->
+                <!-- <ng-content select="statement-card-summary"></ng-content> -->
+                <ng-content select="[step=card-summary]"></ng-content>
+
+                    <button (click)="showStep(2)">nextStep</button>
+
+            </div>
+            <div class="col-md-4" *ngIf="stepIndex2">
+                <!-- payment amount -->
+                <ng-content select="[step=card-addition]"></ng-content>
+                <!-- <ng-content select="statement-card-addition"></ng-content> -->
+                  <button (click)="showStep(1)">beforeStep</button>
+                  <button (click)="showStep('3')">nextStep</button>
+            </div>
+            <div class="col-md-4"  *ngIf="stepIndex3">
+                <!-- payment method -->
+                <ng-content select="[step=card-payment]"></ng-content>
+                <!-- <ng-content select="statement-card-payment"></ng-content> -->
+                  <button (click)="showStep(2)">beforeStep</button>
+                  <button (click)="showStep('4')">nextStep</button>
+            </div>
+            <div class="col-md-4"  *ngIf="stepIndex4">
+                <!-- payment end -->
+                <ng-content select="[step=card-end]"></ng-content>
+                <!-- <ng-content select="statement-card-end"></ng-content> -->
+            </div>
+        </div>
+
+
+    <div class="card-footer">
+    <!-- footer slot here-->
+      <ng-content select="[card][footer]"></ng-content>
+
+    </div>
+</div>
+
+<!-- <li><i class="fa fa-location-arrow" aria-hidden="true" (click)="showDiv(1)"></i>Locator   <button (click)="showDiv('4')">nextStep</button></li>
+<li><i class="fa fa-gift" aria-hidden="true" (click)="showDiv(2)"></i>Offer</li>
+<li><i class="fa fa-phone" aria-hidden="true" (click)="showDiv(3)"></i> Contact</li>
+<li><i class="fa fa-calendar" aria-hidden="true" (click)="showDiv(4)"></i>Holiday</li>
+<li><i class="fa fa-question-circle-o" aria-hidden="true" (click)="showDiv(4)"></i>FAQ</li>
+
+<div id="div1" *ngIf="selectedIndex === 1">Lorum Ipsum1</div>
+<div id="div2" *ngIf="selectedIndex === 2">Lorum Ipsum2</div>
+<div id="div3" *ngIf="selectedIndex === 3">Lorum Ipsum3</div>
+<div id="div4" *ngIf="selectedIndex === 4">Lorum Ipsum4</div> -->

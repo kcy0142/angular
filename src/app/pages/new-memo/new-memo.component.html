@@ -1,0 +1,17 @@
+<div class="new-memo-div" >
+    <form  class="form-inline">
+        <div class="form-group">
+            <input type="text" class="form-control" name="title" [(ngModel)]="prioritymemo_title" placeholder="Title">
+        </div>
+        <select class="form-control" name="selectType" [(ngModel)]="selectedType">
+            <option *ngFor="let p of Priority" [value]="p" >
+                {{p}}
+            </option>
+        </select>
+        <div class="form-group">
+            <input type="text" class="form-control" id="priorityMemo" name="prioritymemo_text"
+            style="width:350px !important;"  placeholder="Input Priority Memo" [(ngModel)]="prioritymemo_text" />
+        </div>
+        <button class="btn btn-primary" (click)="insertNewMemo()" >insert</button>
+    </form>
+</div>

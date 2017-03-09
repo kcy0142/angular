@@ -1,0 +1,28 @@
+<ul>
+  <li *ngFor="let item of message | async">
+      <span class="badge">id:{{item.id}}</span>
+    <input type="text" #updatetext [value]="item.text" />
+    <button (click)="updateItem(item.$key, updatetext.value)">Update by Key</button>
+  <!--  <button (click)="updateItemById(item.id, updatetext.value)">Update by Id number</button>-->
+    <button (click)="deleteItem(item.$key)">Delete</button>
+  </li>
+</ul>
+<input type="text" #newitem />
+<button (click)="addItem(newitem.value)">Add</button>
+<button (click)="deleteEverything()">Delete All</button>
+<!-- <app-alert>You can't add this message.Max 5 allowed</app-alert> -->
+<!--<button (click)="showAlert()">Show Alert</button>-->
+<button (click)="showModal()">
+    Open Modal
+</button>
+
+<tb-modal modal-title="Catchy Title Here" blocking="true"
+    modal-id="{{ MODAL_DEMO_ID }}">
+
+    <div class="center">Are you sure about this?</div>
+
+    <div class="buttons">
+        <button class="flat" (click)="doTheThing()">Yes</button>
+        <button (click)="closeModal()">No</button>
+    </div>
+</tb-modal>
