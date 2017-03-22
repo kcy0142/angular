@@ -28,4 +28,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ##Demo
 
-https://kcy0142app.firebaseapp.com/dashboard
+https://kcy0142app.firebaseapp.com/card
